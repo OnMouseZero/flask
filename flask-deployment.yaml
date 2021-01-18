@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: flask
-        image: onmouse/flask:v1.0
+        image: onmouse/flask:<BUILD_TAG>
         ports:
         - containerPort: 5000

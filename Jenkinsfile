@@ -2,7 +2,7 @@ node('jenkins-slave') {
     stage('Clone') {
       echo "1.Clone Stage"
       script {
-            build_tag = sh(returnStdout: true, script: 'git describe --abbrev=0 --tags').trim()
+            build_tag = "v11.0.1"
       }
     }
     stage('Test') {

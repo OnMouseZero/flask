@@ -1,12 +1,10 @@
 node('jenkins-slave') {
     stage('Clone') {
       echo "1.Clone Stage"
+      checkout scm
       script {
-            build_tag = "v11.0.1"
+            build_tag = sh(returnStdout: true, script: 'git rev-parse').trim()
       }
-    }
-    stage('Test') {
-      echo "2.Test Stage"
     }
     stage('Build') {
       echo "3.Build Docker Image Stage"

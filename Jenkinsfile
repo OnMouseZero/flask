@@ -1,7 +1,6 @@
 node('jenkins-slave') {
     stage('Clone') {
       echo "1.Clone Stage"
-      git url: "https://github.com/OnMouseZero/flask.git/"
       script {
             build_tag = sh(returnStdout: true, script: 'git describe --abbrev=0 --tags').trim()
       }

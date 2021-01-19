@@ -2,7 +2,7 @@ node('jenkins-slave') {
     stage('Clone') {
       echo "1.Clone Stage"
       script {
-            build_tag = v11.0
+            build_tag = "v11.0"
       }
     }
     stage('Test') {

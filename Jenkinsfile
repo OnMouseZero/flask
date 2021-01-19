@@ -3,7 +3,7 @@ node('jenkins-slave') {
       echo "1.Clone Stage"
       checkout master
       script {
-            build_tag = sh(returnStdout: true, script: 'git rev-parse').trim()
+            build_tag = sh(returnStdout: true, script: 'git describe').trim()
       }
     }
     stage('Build') {
@@ -15,7 +15,7 @@ node('jenkins-slave') {
       withCredentials([usernamePassword(credentialsId: 'dockerHub1', passwordVariable: 'dockerHub1Password', usernameVariable: 'dockerHub1User')]) {
             sh "docker login -u ${dockerHub1User} -p ${dockerHub1Password}"
             sh "docker push onmouse/flask:${build_tag}"
-        }
+      }
     }
     stage('YAML') {
       echo "5. Change YAML File Stage"

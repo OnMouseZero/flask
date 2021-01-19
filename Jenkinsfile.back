@@ -32,3 +32,4 @@ node('jenkins-slave') {
     stage('Test') {
       echo "7. Test OK!!!!"
     }
+}

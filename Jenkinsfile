@@ -1,7 +1,6 @@
 node('jenkins-slave') {
     stage('Clone') {
       echo "1.Clone Stage"
-      git checkout master
       script {
             build_tag = sh(returnStdout: true, script: 'git describe').trim()
       }

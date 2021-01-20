@@ -2,7 +2,7 @@ node('jenkins-slave') {
     stage('Clone') {
       echo "1.Clone Stage"
       script {
-            build_tag = sh(returnStdout: true, script: 'git describe').trim()
+            build_tag = sh(returnStdout: true, script: 'git describe  --tags --always').trim()
       }
     }
     stage('Build') {
